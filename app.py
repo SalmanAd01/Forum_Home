@@ -29,10 +29,10 @@ def signin():
             db.session.add(just1)
             db.session.commit()
             flash('Sign In Succesfully')
-            return render_template('index.html')
+            return render_template('index.html',flag=1)
         except:
             flash('Username and Password already exist')
-            return render_template('index.html')
+            return render_template('index.html',flag=1)
 
     return render_template('index.html')
 
@@ -50,7 +50,7 @@ def login():
                 username=usnl, password=psdl, email=eml).first()
             if not cheking:
                 flash('Username and Password Are Incorrect')
-                return render_template('index.html')
+                return render_template('index.html',flag=2)
             else:
                 # flash('login In Succesfully')
                 global temp
