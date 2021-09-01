@@ -62,11 +62,11 @@
                     <div class="container">
                         <a href="#services">
 
-                            <button type="button" class="btn btn-primary">Sign in</button>
+                            <button type="button" class="btn btn-primary" id="si">Sign in</button>
                         </a>
                         <a href="#about">
 
-                            <button type="button" class="btn btn-outline-primary">Log in</button>
+                            <button type="button" class="btn btn-outline-primary" id="li">Log in</button>
                         </a>
                     </div>
                 </div>
@@ -86,7 +86,11 @@
                 <h3 class="title text-center">Sign In</h3>
 
                 <div class="container">
-                    {% if flag==1 %} {% with messages=get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                    {% if flag==1 %}
+                    <script>
+                        document.getElementById("si").click()
+                    </script>
+                    {% with messages=get_flashed_messages() %} {% if messages %} {% for message in messages %}
                     <div class="alert alert-dark alert-dismissible face show" role="alert">
                         <strong>{{ message }}</strong>
                     </div>
@@ -118,7 +122,10 @@
                 <div class="col-md-6 about">
                     <p class="about-title">Login Here</p>
                     <form action="/login" method="post">
-                        {% if flag==2 %} {% with messages=get_flashed_messages() %} {% if messages %} {% for message in messages %}
+                        {% if flag==2 %}
+                        <script>
+                            document.getElementById("li").click()
+                        </script>{% with messages=get_flashed_messages() %} {% if messages %} {% for message in messages %}
                         <div class="alert alert-dark alert-dismissible face show" role="alert">
                             <strong>{{ message }}</strong>
                         </div>
